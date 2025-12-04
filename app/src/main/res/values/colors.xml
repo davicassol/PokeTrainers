@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Cores Clássicas da Pokédex -->
+    <color name="pokedex_red">#D53B47</color>
+    <color name="pokedex_red_dark">#B02E39</color>
+    <color name="pokedex_blue_glass">#2BC4EA</color>
+    <color name="pokedex_screen_bg">#98CB98</color>
+    <color name="pokedex_dark_gray">#2B292C</color>
+
+    <!-- Cores Padrão -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Cores do Tema -->
+    <color name="colorPrimary">@color/pokedex_red</color>
+    <color name="colorPrimaryVariant">@color/pokedex_red_dark</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorSecondary">@color/pokedex_blue_glass</color>
+    <color name="colorOnSecondary">@color/black</color>
 </resources>

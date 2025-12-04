@@ -13,8 +13,11 @@
         android:theme="@style/Theme.Ap2_kotlin"
         tools:targetApi="31">
 
+        <!--
+            Na arquitetura de Fragments (Single Activity),
+            só precisamos declarar a MainActivity.
+        -->
         <activity
-            android:parentActivityName=".MainActivity"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,10 +26,7 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".ui.activity.DetalhesActivity"
-            android:exported="false" />
+        <!-- REMOVIDO: DetalhesActivity (agora é um Fragment) -->
 
     </application>
 

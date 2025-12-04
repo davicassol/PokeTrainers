@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listPersonagensFragment">
+
+    <fragment
+        android:id="@+id/listPersonagensFragment"
+        android:name="com.example.ap2_kotlin.ui.list.ListPersonagensFragment"
+        android:label="Personagens Pokémon"
+        tools:layout="@layout/fragment_list_personagens">
+
+        <action
+            android:id="@+id/action_list_to_form"
+            app:destination="@id/formPersonagemFragment" />
+
+        <action
+            android:id="@+id/action_list_to_details"
+            app:destination="@id/detalhesPersonagemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/formPersonagemFragment"
+        android:name="com.example.ap2_kotlin.ui.form.FormPersonagemFragment"
+        android:label="Cadastro/Edição"
+        tools:layout="@layout/fragment_form_personagem" />
+
+    <fragment
+        android:id="@+id/detalhesPersonagemFragment"
+        android:name="com.example.ap2_kotlin.ui.details.DetalhesPersonagemFragment"
+        android:label="Detalhes"
+        tools:layout="@layout/fragment_detalhes_personagem">
+
+        <action
+            android:id="@+id/action_details_to_form"
+            app:destination="@id/formPersonagemFragment" />
+
+    </fragment>
+</navigation>

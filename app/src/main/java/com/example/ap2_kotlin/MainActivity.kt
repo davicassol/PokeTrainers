@@ -3,26 +3,27 @@ package com.example.ap2_kotlin
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ap2_kotlin.ui.PersonagensAdapter
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val toolbar: Toolbar = findViewById(R.id.toolbar)
-
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = "Personagens Pokémon"
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
+        setupActionBarWithNavController(navController)
+    }
 
-
-        val recyclerView: RecyclerView = findViewById(R.id.rv_personagens)
-        val adapter = PersonagensAdapter()
-        recyclerView.adapter = adapter
+    override fun onSupportNavigateUp(): Boolean {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        return navHostFragment.navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
-

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pokedex_red">
+
+        <!-- Borda Branca Decorativa -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_pokedex_screen_border" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="24dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- A "Tela Verde" Retro -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pokedex_screen_bg"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:elevation="4dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:id="@+id/tv_nome_detalhe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="28sp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        tools:text="ASH KETCHUM" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_pokebola"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        app:tint="@color/pokedex_dark_gray"/>
+                </LinearLayout>
+
+                <!-- Área de Dados (Branca) -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:text="DADOS DO TREINADOR"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/pokedex_red"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"/>
+
+                        <TextView android:id="@+id/tv_tipo_detalhe" android:textSize="16sp" android:textColor="@color/black" tools:text="Tipo: Treinador" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/tv_regiao_detalhe" android:textSize="16sp" android:textColor="@color/black" tools:text="Região: Kanto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/tv_idade_detalhe" android:textSize="16sp" android:textColor="@color/black" tools:text="Idade: 10" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp"/>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDD" android:layout_marginBottom="16dp"/>
+
+                        <TextView android:id="@+id/tv_pokemon_detalhe" android:textSize="18sp" android:textStyle="bold" android:textColor="@color/black" tools:text="Pikachu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/tv_descricao_detalhe" android:textSize="14sp" android:textColor="#555" tools:text="Descrição..." android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Botão de Editar Azul -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:layout_gravity="bottom|end"
+            android:src="@android:drawable/ic_menu_edit"
+            app:backgroundTint="@color/pokedex_blue_glass"
+            app:tint="@color/white"
+            android:contentDescription="Editar" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

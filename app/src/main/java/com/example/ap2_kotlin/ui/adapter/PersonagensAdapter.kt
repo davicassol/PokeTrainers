@@ -1,4 +1,4 @@
-package com.example.ap2_kotlin.ui
+package com.example.ap2_kotlin.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,15 +6,19 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ap2_kotlin.R
-import com.example.ap2_kotlin.data.PersonagensPoke
-import com.example.ap2_kotlin.data.PersonagensRepository
-import android.content.Intent
-import com.example.ap2_kotlin.ui.activity.DetalhesActivity
+import com.example.ap2_kotlin.data.entity.PersonagensPoke
 
+class PersonagensAdapter(
+    private val onClick: (PersonagensPoke) -> Unit,
+    private val onLongClick: (PersonagensPoke) -> Unit
+) : RecyclerView.Adapter<PersonagensAdapter.PersonagemViewHolder>() {
 
-class PersonagensAdapter : RecyclerView.Adapter<PersonagensAdapter.PersonagemViewHolder>() {
+    private var personagens = mutableListOf<PersonagensPoke>()
 
-    private val personagens = PersonagensRepository.listaPersonagensPoke
+    fun atualizarLista(novaLista: List<PersonagensPoke>) {
+        personagens = novaLista.toMutableList()
+        notifyDataSetChanged()
+    }
 
     class PersonagemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nomePersonagem: TextView = view.findViewById(R.id.tv_nome_personagem)
@@ -34,24 +38,14 @@ class PersonagensAdapter : RecyclerView.Adapter<PersonagensAdapter.PersonagemVie
         holder.nomePersonagem.text = personagem.nome
         holder.tipoPersonagem.text = personagem.tipo
 
+        // Clique Normal -> Chama a função de Detalhes
         holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-
-            val intent = Intent(context, DetalhesActivity::class.java)
-
-            intent.putExtra(DetalhesActivity.EXTRA_PERSONAGEM, personagem)
-
-            context.startActivity(intent)
+            onClick(personagem)
         }
 
-
+        // Clique Longo -> Chama a função de Deletar
         holder.itemView.setOnLongClickListener {
-            val currentPosition = holder.adapterPosition
-            if (currentPosition != RecyclerView.NO_POSITION) {
-                personagens.removeAt(currentPosition)
-                notifyItemRemoved(currentPosition)
-                notifyItemRangeChanged(currentPosition, personagens.size)
-            }
+            onLongClick(personagem)
             true
         }
     }
